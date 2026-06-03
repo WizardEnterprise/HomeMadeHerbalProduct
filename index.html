@@ -1,0 +1,387 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranab Naturals - Handmade Soaps</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#faf7f2;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#ff9933,#138808);
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+.cart-btn{
+    background:white;
+    color:#138808;
+    border:none;
+    padding:10px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.hero{
+    background:url('https://images.unsplash.com/photo-1607006483225-2f6b8a4f2d67?q=80&w=1600') center/cover;
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.section-title{
+    text-align:center;
+    margin:50px 0 30px;
+    font-size:2rem;
+    color:#138808;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    padding:0 5% 50px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#138808;
+    font-size:22px;
+    font-weight:700;
+}
+
+.btn{
+    width:100%;
+    border:none;
+    margin-top:15px;
+    background:#ff9933;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:350px;
+    height:100%;
+    background:white;
+    box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+    transition:.4s;
+    padding:20px;
+    overflow:auto;
+    z-index:999;
+}
+
+.cart-panel.active{
+    right:0;
+}
+
+.cart-item{
+    border-bottom:1px solid #ddd;
+    padding:10px 0;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.reviews{
+    padding:20px 5% 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.review{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.review h4{
+    color:#138808;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:2rem;
+}
+.cart-panel{
+width:100%;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌿 Pranab Naturals</div>
+    <button class="cart-btn" onclick="toggleCart()">
+        Cart (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Handmade Ayurvedic Soaps</h1>
+        <p>Natural Ingredients • Indian Tradition • Premium Care</p>
+    </div>
+</section>
+
+<h2 class="section-title">Our Products</h2>
+
+<section class="products">
+
+<div class="card">
+<img src="multani.jpg">
+<div class="card-content">
+<h3>Multani Mitti Soap</h3>
+<p>Deep cleansing and oil control.</p>
+<div class="price">₹120</div>
+<button class="btn" onclick="addToCart('Multani Mitti Soap',120)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="ubtan.jpg">
+<div class="card-content">
+<h3>Ubtan Soap</h3>
+<p>Traditional glow enhancing formula.</p>
+<div class="price">₹150</div>
+<button class="btn" onclick="addToCart('Ubtan Soap',150)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="redwine.jpg">
+<div class="card-content">
+<h3>Red Wine Soap</h3>
+<p>Rich antioxidant skin nourishment.</p>
+<div class="price">₹180</div>
+<button class="btn" onclick="addToCart('Red Wine Soap',180)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="aloevera.jpg">
+<div class="card-content">
+<h3>Aloe Vera Soap</h3>
+<p>Hydrating and soothing skincare.</p>
+<div class="price">₹140</div>
+<button class="btn" onclick="addToCart('Aloe Vera Soap',140)">
+Add To Cart
+</button>
+</div>
+</div>
+
+</section>
+
+<h2 class="section-title">Customer Reviews</h2>
+
+<section class="reviews">
+
+<div class="review">
+<h4>⭐⭐⭐⭐⭐ Priya S.</h4>
+<p>The Ubtan soap gives a natural glow. Loved it!</p>
+</div>
+
+<div class="review">
+<h4>⭐⭐⭐⭐⭐ Rahul K.</h4>
+<p>Multani Mitti soap controls my oily skin perfectly.</p>
+</div>
+
+<div class="review">
+<h4>⭐⭐⭐⭐⭐ Ananya D.</h4>
+<p>Beautiful fragrance and premium packaging.</p>
+</div>
+
+</section>
+
+<div class="cart-panel" id="cartPanel">
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total ₹<span id="totalPrice">0</span>
+</div>
+
+<button class="whatsapp" onclick="sendWhatsAppOrder()">
+Order via WhatsApp
+</button>
+</div>
+
+<footer>
+<h3>Pranab Naturals</h3>
+<p>Handmade Soaps Inspired By Indian Wellness</p>
+<p>WhatsApp: +91XXXXXXXXXX</p>
+</footer>
+
+<script>
+
+let cart=[];
+let total=0;
+
+function toggleCart(){
+document.getElementById("cartPanel").classList.toggle("active");
+}
+
+function addToCart(name,price){
+
+cart.push({name,price});
+
+total += price;
+
+document.getElementById("cartCount").innerText=cart.length;
+document.getElementById("totalPrice").innerText=total;
+
+renderCart();
+}
+
+function renderCart(){
+
+let html="";
+
+cart.forEach(item=>{
+html += `
+<div class="cart-item">
+${item.name}<br>
+₹${item.price}
+</div>
+`;
+});
+
+document.getElementById("cartItems").innerHTML=html;
+}
+
+function sendWhatsAppOrder(){
+
+let message="Hello, I want to order:%0A";
+
+cart.forEach(item=>{
+message += `• ${item.name} - ₹${item.price}%0A`;
+});
+
+message += `%0ATotal: ₹${total}`;
+
+window.open(
+"https://wa.me/91YOURNUMBER?text="+message,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
+```
