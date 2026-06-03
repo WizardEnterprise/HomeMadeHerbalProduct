@@ -4,285 +4,339 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Homemade Herbals Product</title>
+<title>Home Made Herbal Products</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#faf7f2;
-    color:#333;
+background:#faf7f2;
+color:#333;
 }
 
 header{
-    background:linear-gradient(135deg,#ff9933,#138808);
-    color:white;
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:100;
+background:linear-gradient(135deg,#ff9933,#138808);
+color:white;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:700;
+font-size:26px;
+font-weight:700;
 }
 
 .cart-btn{
-    background:white;
-    color:#138808;
-    border:none;
-    padding:10px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    font-weight:bold;
+background:white;
+color:#138808;
+border:none;
+padding:10px 18px;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
 }
 
 .hero{
-    background:url('https://images.unsplash.com/photo-1607006483225-2f6b8a4f2d67?q=80&w=1600') center/cover;
-    min-height:70vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    position:relative;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.45);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    padding:20px;
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1607006483225-2f6b8a4f2d67?q=80&w=1600');
+background-size:cover;
+background-position:center;
+min-height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
 }
 
 .hero h1{
-    font-size:3rem;
+font-size:3rem;
 }
 
 .hero p{
-    margin-top:15px;
-    font-size:1.2rem;
+margin-top:15px;
+font-size:1.2rem;
 }
 
 .section-title{
-    text-align:center;
-    margin:50px 0 30px;
-    font-size:2rem;
-    color:#138808;
+text-align:center;
+margin:50px 0 30px;
+font-size:2rem;
+color:#138808;
 }
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:0 5% 50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+padding:0 5% 50px;
 }
 
 .card{
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    transition:.3s;
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-8px);
 }
 
 .card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
+width:100%;
+height:380px;
+object-fit:contain;
+background:#fff;
+padding:10px;
+cursor:pointer;
 }
 
 .card-content{
-    padding:20px;
-}
-
-.card h3{
-    margin-bottom:10px;
+padding:20px;
 }
 
 .price{
-    color:#138808;
-    font-size:22px;
-    font-weight:700;
+color:#138808;
+font-size:22px;
+font-weight:700;
+margin-top:10px;
 }
 
 .btn{
-    width:100%;
-    border:none;
-    margin-top:15px;
-    background:#ff9933;
-    color:white;
-    padding:12px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
+width:100%;
+margin-top:15px;
+border:none;
+background:#ff9933;
+color:white;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
 }
 
 .cart-panel{
-    position:fixed;
-    top:0;
-    right:-400px;
-    width:350px;
-    height:100%;
-    background:white;
-    box-shadow:-5px 0 20px rgba(0,0,0,0.2);
-    transition:.4s;
-    padding:20px;
-    overflow:auto;
-    z-index:999;
+position:fixed;
+top:0;
+right:-420px;
+width:380px;
+height:100%;
+background:white;
+box-shadow:-5px 0 20px rgba(0,0,0,.2);
+transition:.4s;
+padding:20px;
+overflow:auto;
+z-index:9999;
 }
 
 .cart-panel.active{
-    right:0;
+right:0;
 }
 
 .cart-item{
-    border-bottom:1px solid #ddd;
-    padding:10px 0;
+border-bottom:1px solid #ddd;
+padding:15px 0;
+}
+
+.qty-btn{
+padding:4px 12px;
+margin:0 4px;
+cursor:pointer;
+border:none;
+background:#138808;
+color:white;
+border-radius:4px;
 }
 
 .total{
-    font-size:22px;
-    font-weight:bold;
-    margin:20px 0;
+font-size:24px;
+font-weight:700;
+margin:20px 0;
 }
 
 .whatsapp{
-    background:#25D366;
-    color:white;
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
+width:100%;
+background:#25D366;
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
 }
 
 .reviews{
-    padding:20px 5% 60px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
+padding:20px 5% 60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
 }
 
 .review{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
 .review h4{
-    color:#138808;
+color:#138808;
 }
 
 footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:30px;
+background:#222;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+z-index:10000;
+}
+
+.modal-content{
+background:white;
+width:90%;
+max-width:550px;
+margin:100px auto;
+padding:25px;
+border-radius:15px;
+position:relative;
+}
+
+.close{
+position:absolute;
+right:15px;
+top:10px;
+font-size:30px;
+cursor:pointer;
 }
 
 @media(max-width:768px){
+
 .hero h1{
 font-size:2rem;
 }
+
 .cart-panel{
 width:100%;
 }
+
+.card img{
+height:300px;
 }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">🌿 Home Made Herbal Products</div>
-    <button class="cart-btn" onclick="toggleCart()">
-        Cart (<span id="cartCount">0</span>)
-    </button>
+<div class="logo">🌿 Home Made Herbal Products</div>
+
+<button class="cart-btn" onclick="toggleCart()">
+Cart (<span id="cartCount">0</span>)
+</button>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Handmade Ayurvedic Soaps</h1>
-        <p>Natural Ingredients • Indian Tradition • Premium Care</p>
-    </div>
+<div>
+<h1>Handmade Ayurvedic Soaps</h1>
+<p>Natural Ingredients • Traditional Wellness • Handmade Care</p>
+</div>
 </section>
 
 <h2 class="section-title">Our Products</h2>
 
 <section class="products">
-    
+
 <div class="card">
-<img src="aloevera.png">
+<img src="aloevera.png"
+onclick="showProduct('Aloe Vera Soap','Made with natural Aloe Vera extracts. Moisturizes and refreshes the skin.')">
+
 <div class="card-content">
 <h3>Aloe Vera Soap</h3>
 <p>Hydrating and soothing skincare.</p>
-<div class="price">₹120</div>
-<button class="btn" onclick="addToCart('Aloe Vera Soap',140)">
+<div class="price">₹60</div>
+
+<button class="btn"
+onclick="addToCart('Aloe Vera Soap',60)">
 Add To Cart
 </button>
 </div>
 </div>
 
- <div class="card">
-<img src="ubtan.png">
+<div class="card">
+<img src="ubtan.png"
+onclick="showProduct('Ubtan Soap','Traditional Ayurvedic formula for glowing and nourished skin.')">
+
 <div class="card-content">
 <h3>Ubtan Soap</h3>
 <p>Traditional glow enhancing formula.</p>
-<div class="price">₹150</div>
-<button class="btn" onclick="addToCart('Ubtan Soap',150)">
+<div class="price">₹50</div>
+
+<button class="btn"
+onclick="addToCart('Ubtan Soap',50)">
 Add To Cart
 </button>
 </div>
 </div>
 
 <div class="card">
-<img src="redwine.jpg">
+<img src="redwine.png"
+onclick="showProduct('Red Wine Soap','Rich antioxidants help improve skin texture and radiance.')">
+
 <div class="card-content">
 <h3>Red Wine Soap</h3>
 <p>Rich antioxidant skin nourishment.</p>
-<div class="price">₹180</div>
-<button class="btn" onclick="addToCart('Red Wine Soap',180)">
+<div class="price">₹60</div>
+
+<button class="btn"
+onclick="addToCart('Red Wine Soap',60)">
 Add To Cart
 </button>
 </div>
 </div>
-   
+
 <div class="card">
-<img src="multani.jpg">
+<img src="multani.jpg"
+onclick="showProduct('Multani Mitti Soap','Deep cleansing soap that helps remove excess oil and impurities.')">
+
 <div class="card-content">
 <h3>Multani Mitti Soap</h3>
 <p>Deep cleansing and oil control.</p>
 <div class="price">₹120</div>
-<button class="btn" onclick="addToCart('Multani Mitti Soap',120)">
+
+<button class="btn"
+onclick="addToCart('Multani Mitti Soap',120)">
 Add To Cart
 </button>
 </div>
 </div>
-
 
 </section>
 
@@ -292,23 +346,31 @@ Add To Cart
 
 <div class="review">
 <h4>⭐⭐⭐⭐⭐ Priya S.</h4>
-<p>The Ubtan soap gives a natural glow. Loved it!</p>
+<p>The Ubtan soap gives a natural glow. Loved it.</p>
 </div>
 
 <div class="review">
 <h4>⭐⭐⭐⭐⭐ Rahul K.</h4>
-<p>Multani Mitti soap controls my oily skin perfectly.</p>
+<p>Multani Mitti soap works great for oily skin.</p>
 </div>
 
 <div class="review">
 <h4>⭐⭐⭐⭐⭐ Ananya D.</h4>
-<p>Beautiful fragrance and premium packaging.</p>
+<p>Premium quality and beautiful fragrance.</p>
 </div>
 
 </section>
 
 <div class="cart-panel" id="cartPanel">
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
 <h2>Your Cart</h2>
+
+<button onclick="toggleCart()"
+style="border:none;background:none;font-size:30px;cursor:pointer;">
+×
+</button>
+</div>
 
 <div id="cartItems"></div>
 
@@ -316,21 +378,38 @@ Add To Cart
 Total ₹<span id="totalPrice">0</span>
 </div>
 
-<button class="whatsapp" onclick="sendWhatsAppOrder()">
+<button class="whatsapp"
+onclick="sendWhatsAppOrder()">
 Order via WhatsApp
 </button>
+
+</div>
+
+<div class="modal" id="productModal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal()">×</span>
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDescription"
+style="margin-top:15px;line-height:1.8;"></p>
+
+</div>
+
 </div>
 
 <footer>
 <h3>Wizard Enterprise</h3>
-<p>Handmade Soaps Inspired By Indian Villagers Wellness</p>
-<p>WhatsApp: +91XXXXXXXXXX</p>
+<p>Handmade Soaps Inspired By Indian Village Wellness</p>
+<p>WhatsApp: +91 8452934730</p>
 </footer>
 
 <script>
 
-let cart=[];
-let total=0;
+let cart = {};
 
 function toggleCart(){
 document.getElementById("cartPanel").classList.toggle("active");
@@ -338,12 +417,30 @@ document.getElementById("cartPanel").classList.toggle("active");
 
 function addToCart(name,price){
 
-cart.push({name,price});
+if(cart[name]){
+cart[name].qty++;
+}else{
+cart[name]={
+price:price,
+qty:1
+};
+}
 
-total += price;
+renderCart();
+}
 
-document.getElementById("cartCount").innerText=cart.length;
-document.getElementById("totalPrice").innerText=total;
+function increaseQty(name){
+cart[name].qty++;
+renderCart();
+}
+
+function decreaseQty(name){
+
+cart[name].qty--;
+
+if(cart[name].qty<=0){
+delete cart[name];
+}
 
 renderCart();
 }
@@ -351,33 +448,96 @@ renderCart();
 function renderCart(){
 
 let html="";
+let total=0;
+let count=0;
 
-cart.forEach(item=>{
-html += `
+for(let name in cart){
+
+let item=cart[name];
+
+let subtotal=item.price*item.qty;
+
+total+=subtotal;
+count+=item.qty;
+
+html+=`
 <div class="cart-item">
-${item.name}<br>
-₹${item.price}
+
+<strong>${name}</strong><br>
+
+₹${item.price} × ${item.qty}
+= ₹${subtotal}
+
+<div style="margin-top:10px;">
+
+<button class="qty-btn"
+onclick="decreaseQty('${name}')">-</button>
+
+${item.qty}
+
+<button class="qty-btn"
+onclick="increaseQty('${name}')">+</button>
+
+</div>
+
 </div>
 `;
-});
+}
 
 document.getElementById("cartItems").innerHTML=html;
+document.getElementById("totalPrice").innerText=total;
+document.getElementById("cartCount").innerText=count;
 }
 
 function sendWhatsAppOrder(){
 
-let message="Hello, I want to order:%0A";
+let total=0;
 
-cart.forEach(item=>{
-message += `• ${item.name} - ₹${item.price}%0A`;
-});
+let message="Hello, I would like to order:%0A%0A";
 
-message += `%0ATotal: ₹${total}`;
+for(let name in cart){
+
+let item=cart[name];
+
+let subtotal=item.price*item.qty;
+
+total+=subtotal;
+
+message +=
+`• ${name} | Qty: ${item.qty} | ₹${subtotal}%0A`;
+}
+
+message += `%0A------------------`;
+message += `%0ATotal Amount: ₹${total}`;
 
 window.open(
 "https://wa.me/918452934730?text="+message,
 "_blank"
 );
+
+}
+
+function showProduct(title,description){
+
+document.getElementById("modalTitle").innerText=title;
+document.getElementById("modalDescription").innerText=description;
+document.getElementById("productModal").style.display="block";
+
+}
+
+function closeModal(){
+
+document.getElementById("productModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("productModal");
+
+if(event.target==modal){
+modal.style.display="none";
+}
 
 }
 
