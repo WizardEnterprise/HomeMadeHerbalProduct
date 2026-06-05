@@ -35,7 +35,7 @@ header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 12px 
 .modal img{width:100%;max-height:500px;object-fit:contain}
 .waFloat{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 18px;border-radius:50px;text-decoration:none;font-weight:600}
 footer{background:#1d1d1d;color:#fff;text-align:center;padding:35px}
-  
+@media(max-width:768px){.hero h1{font-size:2rem}.cart{width:100%;right:-100%}}  
 .heroShowcase{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -167,8 +167,10 @@ font-size:40px;
 color:#138808;
 }
 
-
-@media(max-width:768px){.hero h1{font-size:2rem}.cart{width:100%;right:-100%}}
+@media(max-width:768px){
+.heroShowcase{
+grid-template-columns:1fr;
+}
   
 }
 </style>
@@ -283,6 +285,7 @@ Premium
 
 <div
 class="card product herbal"
+class="card product family"
 data-name="aloe vera soap">
 <div class="ribbon">
 20% OFF
@@ -299,6 +302,7 @@ data-name="aloe vera soap">
 </div>
 
 <div
+class="card product herbal"
 class="card product family"
 data-name="ubtan soap">
 <div class="ribbon">
@@ -316,6 +320,7 @@ data-name="ubtan soap">
 </div>
 
 <div
+class="card product herbal"
 class="card product premium"
 data-name="red wine soap">
 <div class="ribbon">
