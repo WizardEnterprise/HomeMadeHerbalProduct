@@ -41,97 +41,254 @@ footer{background:#1d1d1d;color:#fff;text-align:center;padding:35px}
 <body>
 
 <header>
-<div class="logo">🌿 Home Made Herbal Products</div>
-<button class="cartBtn" onclick="toggleCart()">Cart (<span id="count">0</span>)</button>
+    <div class="logo">🌿 Home Made Herbal Products</div>
+
+    <button class="cart-btn" onclick="toggleCart()">
+        Cart (<span id="cartCount">0</span>)
+    </button>
 </header>
 
-<section class="hero">
-<h1>Premium Handmade Herbal Soaps</h1>
-<p>Natural Ingredients • Ayurvedic Wellness • Handmade With Love</p>
+<!-- HERO PRODUCT SHOWCASE -->
+
+<section class="hero-slider">
+
+    <div class="hero-main">
+
+        <img
+        id="heroImage"
+        src="aloevera.png">
+
+    </div>
+
+    <div class="hero-content">
+
+        <span class="badge">
+            Bestseller
+        </span>
+
+        <h1 id="heroTitle">
+            Aloe Vera Soap
+        </h1>
+
+        <p id="heroDesc">
+            Natural hydration and soothing skincare.
+        </p>
+
+        <button
+        class="shop-btn"
+        onclick="scrollToProducts()">
+
+        Shop Now
+
+        </button>
+
+        <div class="thumbnail-gallery">
+
+            <img
+            src="aloevera.png"
+            onclick="changeHero(
+            'aloevera.png',
+            'Aloe Vera Soap',
+            'Natural hydration and soothing skincare.'
+            )">
+
+            <img
+            src="ubtan.png"
+            onclick="changeHero(
+            'ubtan.png',
+            'Ubtan Soap',
+            'Traditional glow enhancing formula.'
+            )">
+
+            <img
+            src="redwine.png"
+            onclick="changeHero(
+            'redwine.png',
+            'Red Wine Soap',
+            'Rich antioxidant nourishment.'
+            )">
+
+            <img
+            src="multani.jpg"
+            onclick="changeHero(
+            'multani.jpg',
+            'Multani Mitti Soap',
+            'Deep cleansing and oil control.'
+            )">
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="section">
-<h2 class="title">Featured Products</h2>
+<!-- SEARCH -->
 
-<div class="grid">
+<section class="search-filter">
 
-<div class="card">
-<img src="aloevera.png" onclick="showProduct('Aloe Vera Soap','Deep hydration and soothing skincare.','aloevera.png')">
-<div class="content">
-<span class="badge">Family Pack</span>
-<span class="badge">Premium</span>
-<h2>Aloe Vera Soap</h2>
-<div class="rating">★★★★★</div>
-<p>Hydrating and soothing skincare.</p><br>
-<div class="price">₹60</div><br>
-<button class="btn" onclick="addCart('Aloe Vera Soap',60)">Add To Cart</button>
-</div>
-</div>
+<input
+type="text"
+id="searchInput"
+placeholder="Search Products..."
+onkeyup="searchProducts()">
 
-<div class="card">
-<img src="ubtan.png" onclick="showProduct('Ubtan Soap','Traditional Ayurvedic glow formula.','ubtan.png')">
-<div class="content">
-<span class="badge">Family Pack</span>
-<span class="badge">Premium</span>
-<h2>Ubtan Soap</h2>
-<div class="rating">★★★★★</div>
-<p>Traditional glow enhancing formula.</p><br>
-<div class="price">₹50</div><br>
-<button class="btn" onclick="addCart('Ubtan Soap',50)">Add To Cart</button>
-</div>
-</div>
+<div class="filters">
 
-<div class="card">
-<img src="redwine.png" onclick="showProduct('Red Wine Soap','Antioxidant-rich luxurious skincare.','redwine.png')">
-<div class="content">
-<span class="badge">Family Pack</span>
-<span class="badge">Premium</span>
-<h2>Red Wine Soap</h2>
-<div class="rating">★★★★★</div>
-<p>Rich antioxidant skin nourishment.</p><br>
-<div class="price">₹60</div><br>
-<button class="btn" onclick="addCart('Red Wine Soap',60)">Add To Cart</button>
-</div>
-</div>
+<button onclick="filterProducts('all')">
+All
+</button>
+
+<button onclick="filterProducts('herbal')">
+Herbal
+</button>
+
+<button onclick="filterProducts('premium')">
+Premium
+</button>
+
+<button onclick="filterProducts('family')">
+Family
+</button>
 
 </div>
+
 </section>
 
-<section class="section">
-<h2 class="title">Customer Reviews</h2>
-<div class="reviews">
-<div class="box">★★★★★<br><b>Priya</b><br>Amazing fragrance and quality.</div>
-<div class="box">★★★★★<br><b>Rahul</b><br>Best herbal soap I've used.</div>
-<div class="box">★★★★★<br><b>Ananya</b><br>Beautiful packaging and feel.</div>
+<!-- PRODUCTS -->
+
+<h2 class="section-title" id="productsSection">
+Our Products
+</h2>
+
+<section class="products">
+
+<div
+class="card product herbal"
+data-name="aloe vera soap">
+
+<div class="ribbon">
+20% OFF
 </div>
+
+<img
+src="aloevera.png"
+onclick="showProduct(
+'Aloe Vera Soap',
+'Natural Aloe Vera extracts that soothe and hydrate skin.',
+'aloevera.png'
+)">
+
+<div class="card-content">
+
+<h3>Aloe Vera Soap</h3>
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+<p>Hydrating and soothing skincare.</p>
+
+<div class="price">
+₹60
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Aloe Vera Soap',60)">
+Add To Cart
+</button>
+
+</div>
+
+</div>
+
+<!-- Repeat for Ubtan, Red Wine, Multani -->
+
 </section>
 
-<section class="section">
-<h2 class="title">Frequently Asked Questions</h2>
-<div class="faq">
-<div class="box"><b>Are these handmade?</b><br>Yes, all soaps are handmade.</div>
-<div class="box"><b>Suitable for all skin types?</b><br>Yes, formulated for daily use.</div>
-<div class="box"><b>How to order?</b><br>Add products and checkout via WhatsApp.</div>
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat">
+<h2 id="customerCount">0</h2>
+<p>Happy Customers</p>
 </div>
+
+<div class="stat">
+<h2 id="orderCount">0</h2>
+<p>Orders Delivered</p>
+</div>
+
+<div class="stat">
+<h2 id="reviewCount">0</h2>
+<p>5 Star Reviews</p>
+</div>
+
+<div class="stat">
+<h2 id="productCount">0</h2>
+<p>Products Sold</p>
+</div>
+
 </section>
 
-<div class="cart" id="cart">
-<h2>Shopping Cart <button onclick="toggleCart()">✕</button></h2><hr><br>
-<div id="items"></div><br>
-<h3>Total ₹<span id="total">0</span></h3><br>
-<button class="waBtn btn" onclick="checkout()">Order via WhatsApp</button>
+<!-- TESTIMONIALS -->
+
+<section class="testimonial-section">
+
+<h2 class="section-title">
+Customer Testimonials
+</h2>
+
+<div class="testimonial-box">
+
+<h3 id="testimonialName">
+Priya S.
+</h3>
+
+<p id="testimonialText">
+Amazing handmade soap.
+</p>
+
 </div>
 
-<div class="modal" id="modal">
-<div class="modalContent">
-<button onclick="closeModal()">Close</button>
-<img id="mimg">
-<h2 id="mtitle"></h2>
-<p id="mdesc"></p>
-</div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-item">
+<b>Are these handmade?</b>
+<p>Yes. Every soap is handmade.</p>
 </div>
 
-<a class="waFloat" href="https://wa.me/918452934730" target="_blank">WhatsApp</a>
+<div class="faq-item">
+<b>Do you deliver across India?</b>
+<p>Yes.</p>
+</div>
+
+<div class="faq-item">
+<b>Suitable for all skin types?</b>
+<p>Generally yes.</p>
+</div>
+
+</section>
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+class="whatsapp-float"
+href="https://wa.me/918452934730"
+target="_blank">
+
+WhatsApp
+
+</a>
 
 <footer>
 <h3>Wizard Enterprise</h3>
@@ -176,6 +333,114 @@ document.getElementById('mtitle').innerText=t;
 document.getElementById('mdesc').innerText=d;
 }
 function closeModal(){document.getElementById('modal').style.display='none';}
+
+function changeHero(image,title,desc){
+
+document.getElementById("heroImage").src=image;
+
+document.getElementById("heroTitle").innerText=title;
+
+document.getElementById("heroDesc").innerText=desc;
+
+}
+
+function scrollToProducts(){
+
+document
+.getElementById("productsSection")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}  
+
+.hero-slider{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+gap:40px;
+
+padding:60px 5%;
+
+background:#fff;
+
+}
+
+.hero-main img{
+
+width:100%;
+
+max-height:550px;
+
+object-fit:contain;
+
+}
+
+.hero-content h1{
+
+font-size:3rem;
+
+margin:20px 0;
+
+}
+
+.shop-btn{
+
+background:#138808;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+cursor:pointer;
+
+font-size:18px;
+
+}
+
+.thumbnail-gallery{
+
+display:flex;
+
+gap:15px;
+
+margin-top:30px;
+
+}
+
+.thumbnail-gallery img{
+
+width:90px;
+
+height:90px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+cursor:pointer;
+
+border:2px solid #ddd;
+
+transition:.3s;
+
+}
+
+.thumbnail-gallery img:hover{
+
+border-color:#138808;
+
+transform:scale(1.05);
+
+}  
 </script>
 </body>
 </html>
